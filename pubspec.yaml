@@ -45,6 +45,9 @@ dependencies:
   intl: ^0.18.1
   flutter_svg: ^2.0.7
   firebase_messaging: ^14.7.3
+  dotted_line: ^3.2.2
+  image_picker: ^1.0.7
+  firebase_storage: ^11.6.0
 
 dev_dependencies:
   flutter_test:
@@ -75,10 +78,20 @@ flutter:
     - assets/mujmenu.png
     - assets/star.png
     - assets/location.png
+    - assets/3d-cash.png
+    - assets/olx/bracelet.png
+    - assets/olx/calculator.png
+    - assets/olx/jacket.png
+    - assets/olx/more-information.png
+    - assets/olx/open-book.png
+    - assets/olx/poster.png
+    - assets/olx/responsive.png
+    - assets/olx/sneakers.png
     - assets/clock.png
     - assets/carpool_search.png
     - assets/carpool_search_poster.png
     - assets/car-sharing.png
+    - assets/laptop-hand.png
     - assets/illustration.png
     - assets/other.svg
     - assets/plane.svg
@@ -90,6 +103,9 @@ flutter:
     - avatars/avatar4.jpg
     - avatars/avatar5.jpg
     - avatars/avatar6.jpg
+    - assets/olx.jpg
+    - assets/airpods.jpg
+    - assets/darshan.jpg
     - assets/no-carpool-rides.png
     - assets/event_spotlight_illu.png
 

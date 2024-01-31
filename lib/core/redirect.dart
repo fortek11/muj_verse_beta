@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../features/presentation/screens/homepage_navigator.dart';
-import '../features/presentation/screens/login.dart';
+import 'homepage_navigator.dart';
+import 'login.dart';
 
 class Redirect extends StatelessWidget {
   const Redirect({super.key});
