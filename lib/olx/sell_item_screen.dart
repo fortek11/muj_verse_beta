@@ -73,6 +73,7 @@ class SellItemOlxScreen extends StatelessWidget {
             'category': dataState.sellOLXItemCategory,
             'image': imageUrl,
             'description': description,
+            'date': Timestamp.fromDate(DateTime.now())
           }).then((value) {
             Navigator.of(context).pop();
             showDialog(
@@ -104,7 +105,7 @@ class SellItemOlxScreen extends StatelessWidget {
 
     void _pickimage() async {
       dataState.sellOlxPickedImage = await ImagePicker().pickImage(
-          source: ImageSource.gallery, imageQuality: 40, maxWidth: 450);
+          source: ImageSource.gallery, imageQuality: 50, maxWidth: 500);
 
       if (dataState.sellOlxPickedImage == null) {
         return;

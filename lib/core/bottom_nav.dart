@@ -31,40 +31,41 @@ class BottomNavBar extends StatelessWidget {
       ),
       child: Padding(
         padding:
-            const EdgeInsets.only(left: 25.0, right: 25.0, top: 15, bottom: 15),
+            const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
           children: [
             IconBottomBar2(
-                text: "",
+                text: "menu",
                 icon: Icons.fastfood_outlined,
                 selected: navProvider.pageIndex == 0,
                 onPressed: () {
                   navProvider.changePageTo(0, 'HomeScreen');
                 }),
             IconBottomBar2(
-                text: "",
+                text: "carpool",
                 icon: Icons.directions_car,
                 selected: navProvider.pageIndex == 1,
                 onPressed: () {
                   navProvider.changePageTo(1, 'HomeScreen');
                 }),
             IconBottomBar2(
-                text: "Home",
+                text: "home",
                 icon: Icons.home,
                 selected: navProvider.pageIndex == 2,
                 onPressed: () {
                   navProvider.changePageTo(2, 'HomeScreen');
                 }),
             IconBottomBar2(
-                text: "Events",
+                text: "events",
                 icon: Icons.school,
                 selected: navProvider.pageIndex == 3,
                 onPressed: () {
                   navProvider.changePageTo(3, 'HomeScreen');
                 }),
             IconBottomBar2(
-                text: "OLX",
+                text: "marketplace",
                 icon: Icons.shopping_bag,
                 selected: navProvider.pageIndex == 4,
                 onPressed: () {
@@ -92,15 +93,32 @@ class IconBottomBar2 extends StatelessWidget {
   final primaryColor = Color(0xFF1D2228);
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      maxRadius: 22,
-      backgroundColor: selected ? Color(0xFF1D2228) : Colors.transparent,
-      child: IconButton(
-        onPressed: onPressed,
-        icon: Icon(
-          icon,
-          size: 25,
-          color: selected ? Colors.white : Colors.black54,
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        height: 45,
+        width: (MediaQuery.sizeOf(context).width / 6),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              size: 25,
+              color: selected
+                  ? Color.fromARGB(255, 41, 51, 65)
+                  : Colors.grey.shade400,
+            ),
+            FittedBox(
+              child: Text(
+                text,
+                style: TextStyle(
+                    fontSize: 11.5,
+                    color: selected
+                        ? Color.fromARGB(255, 41, 51, 65)
+                        : Colors.grey.shade500),
+              ),
+            )
+          ],
         ),
       ),
     );

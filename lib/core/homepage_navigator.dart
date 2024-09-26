@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:muj_verse_beta/event/event_spotlight_screen.dart';
-import 'package:muj_verse_beta/core/homepage.dart';
+import 'package:muj_verse_beta/homepage/homepage.dart';
 import 'package:muj_verse_beta/olx/olx_screen.dart';
 
 import 'package:provider/provider.dart';
@@ -12,6 +12,7 @@ import '../menu/menu_screen.dart';
 class HomepageNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print('loggid in');
     final navProvider = Provider.of<ProviderNav>(context);
 
     List<Widget> _pagesList = [

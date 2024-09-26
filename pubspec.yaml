@@ -48,6 +48,8 @@ dependencies:
   dotted_line: ^3.2.2
   image_picker: ^1.0.7
   firebase_storage: ^11.6.0
+  firebase_pagination: ^3.1.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -103,9 +105,29 @@ flutter:
     - avatars/avatar4.jpg
     - avatars/avatar5.jpg
     - avatars/avatar6.jpg
-    - assets/olx.jpg
+    - avatars/my_account.png
+    - assets/home_promo.png
+    - assets/home_promo2.png
+    - assets/home_promo3.png
+    - assets/cab_banner.png
+    - assets/dome.png
+    - assets/bell.png
+    - assets/bus.png
+    - assets/home_rewards.png
+    - assets/home_events.png
+    - assets/home_party.png
     - assets/airpods.jpg
     - assets/darshan.jpg
+    - assets/login_page.png
+    - assets/create_account_page.png
+    - assets/google.png
+    - assets/initial_page.png          
+    - assets/account_card.png          
+    - assets/notification_card.png          
+    - assets/mv_logo.png
+    - assets/academic_calender.jpg
+    - assets/dialog_promo.png
+    - assets/verify_email.png
     - assets/no-carpool-rides.png
     - assets/event_spotlight_illu.png
 

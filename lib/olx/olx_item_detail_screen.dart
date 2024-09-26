@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class OlxItemDetailScreen extends StatelessWidget {
   final Map<dynamic, dynamic> productData;
   OlxItemDetailScreen(this.productData);
+
   @override
   Widget build(BuildContext context) {
+    String date;
+    if (productData['date'] == null) {
+      date = 'NA';
+    } else {
+      date = DateFormat.MMMd().format(productData['date'].toDate()) ?? 'null';
+    }
+
     return Scaffold(
       body: Column(
         mainAxisSize: MainAxisSize.min,
@@ -80,7 +89,8 @@ class OlxItemDetailScreen extends StatelessWidget {
                           height: 45.0,
                         )),
                         title: Text('Darshan Wadhva'),
-                        subtitle: Text('Posted on 23 Dec'),
+                        subtitle: Text(
+                            'Posted on ${date == null ? 'NA' : date.toString()}'),
                         trailing: IconButton(
                             onPressed: () {}, icon: Icon(Icons.error)),
                       ),

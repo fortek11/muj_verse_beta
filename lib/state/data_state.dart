@@ -150,50 +150,6 @@ class DataState with ChangeNotifier {
     FindCarpoolDateIndex = 0;
   }
 
-  final List<Map> sampleOlxData = [
-    {
-      'image': 'assets/olx.jpg',
-      'title': 'Asus TUF Ryzen 7 4500h',
-      'price': '50000',
-      'category': 'Electronics'
-    },
-    {
-      'image': 'assets/airpods.jpg',
-      'title': 'Asus TUF Ryzen 7 4500h',
-      'price': '50000',
-      'category': 'Electronics'
-    },
-    {
-      'image': 'assets/cover-93.jpg',
-      'title': 'Asus TUF Ryzen 7 4500h',
-      'price': '50000',
-      'category': 'Electronics'
-    },
-    {
-      'image': 'assets/olx.jpg',
-      'title': 'Asus TUF Ryzen 7 4500h',
-      'price': '50000',
-      'category': 'Electronics'
-    },
-    {
-      'image': 'assets/olx.jpg',
-      'title': 'Asus TUF Ryzen 7 4500h',
-      'price': '50000',
-      'category': 'Electronics'
-    },
-    {
-      'image': 'assets/olx.jpg',
-      'title': 'Asus TUF Ryzen 7 4500h',
-      'price': '50000',
-      'category': 'Electronics'
-    },
-    {
-      'image': 'assets/olx.jpg',
-      'title': 'Asus TUF Ryzen 7 4500h',
-      'price': '50000',
-      'category': 'Electronics'
-    }
-  ];
   XFile? sellOlxPickedImage;
   int? sellOLXItemCategory;
   bool isSellOlxImagePicked = false;

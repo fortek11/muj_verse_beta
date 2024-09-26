@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:muj_verse_beta/olx/category_olx_screen.dart';
 
 class OlxCategoryWidget extends StatelessWidget {
   @override
@@ -19,7 +20,12 @@ class OlxCategoryWidget extends StatelessWidget {
         itemCount: _categories.length,
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return OlxCategoryScreen(
+                    _categories.keys.elementAt(index), index);
+              }));
+            },
             child: Container(
               padding: EdgeInsets.all(8),
               margin: EdgeInsets.only(right: 7, left: 7, top: 10, bottom: 10),

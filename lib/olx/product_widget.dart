@@ -16,45 +16,49 @@ class OlxItemWidget extends StatelessWidget {
         }));
       },
       child: Container(
-          height: 200,
-          width: 100,
-          alignment: Alignment.bottomCenter,
-          clipBehavior: Clip.hardEdge,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage(itemdata['image']),
-                  fit: BoxFit.cover,
-                  alignment: Alignment.bottomCenter),
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(15)),
-          child: Container(
-              padding: EdgeInsets.only(top: 3, left: 5, right: 10),
-              clipBehavior: Clip.hardEdge,
-              height: 70,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Color.fromARGB(64, 255, 255, 255).withOpacity(0.5),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10)),
+        width: 120,
+        padding: EdgeInsets.only(top: 9, left: 10, right: 10, bottom: 7),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Color.fromARGB(170, 226, 232, 238)),
+        child: Stack(
+          children: [
+            FractionallySizedBox(
+              heightFactor: 0.78,
+              child: Container(
+                alignment: Alignment.topCenter,
+                clipBehavior: Clip.hardEdge,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: NetworkImage(itemdata['image']),
+                        fit: BoxFit.cover,
+                        alignment: Alignment.center),
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(15)),
               ),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(
-                    sigmaX: 20.0, sigmaY: 20.0, tileMode: TileMode.repeated),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      itemdata['title'],
-                      style: TextStyle(fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      '₹ ${itemdata['price']}',
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    )
-                  ],
-                ),
-              ))),
+            ),
+            Positioned(
+              bottom: 2,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '₹ ${itemdata['price']}',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15,
+                        color: Color.fromARGB(255, 65, 93, 133)),
+                  ),
+                  Text(
+                    itemdata['title'],
+                    style: TextStyle(color: Colors.grey.shade700),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

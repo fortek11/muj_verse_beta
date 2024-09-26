@@ -4,6 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:muj_verse_beta/event/all_events_screen.dart';
 import 'package:muj_verse_beta/event/event_detail_screen.dart';
 import 'package:muj_verse_beta/carpool/post_new_carpool.dart';
+import 'package:muj_verse_beta/homepage/26_bus.dart';
+import 'package:muj_verse_beta/homepage/academic_calander.dart';
+import 'package:muj_verse_beta/homepage/book_cab.dart';
+import 'package:muj_verse_beta/login%20screen/create_account.dart';
+import 'package:muj_verse_beta/login%20screen/login_screen.dart';
+import 'package:muj_verse_beta/login%20screen/new_initial.dart';
 import 'package:muj_verse_beta/olx/olx_screen.dart';
 import 'package:muj_verse_beta/olx/sell_item_screen.dart';
 import 'package:provider/provider.dart';
@@ -31,11 +37,12 @@ class MujMenuApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ProviderNav())
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(
                 seedColor: Color(0xFF1D2228), primary: Color(0xFF1D2228)),
             useMaterial3: true,
-            textTheme: GoogleFonts.montserratTextTheme()),
+            textTheme: GoogleFonts.nunitoTextTheme()),
         home: Redirect(),
         routes: {
           OutletDetailMenu.routeName: (context) => OutletDetailMenu(),
@@ -43,7 +50,15 @@ class MujMenuApp extends StatelessWidget {
           AllEventsScreen.routeName: (context) => AllEventsScreen(),
           PostNewCarpoolRide.routeName: (context) => PostNewCarpoolRide(),
           OlxScreen.routeName: (context) => OlxScreen(),
-          SellItemOlxScreen.routeName: (context) => SellItemOlxScreen()
+          SellItemOlxScreen.routeName: (context) => SellItemOlxScreen(),
+          LoginScreen.routeName: (context) => LoginScreen(),
+          Redirect.routeName: (context) => Redirect(),
+          AcademicCalenderScreen.routeName: (context) =>
+              AcademicCalenderScreen(),
+          BusTimingScreen.routeName: (context) => BusTimingScreen(),
+          NewInitialScreen.routeName: (context) => NewInitialScreen(),
+          BookCabScreen.routeName: (context) => BookCabScreen(),
+          CreateAccountScreen.routeName: (context) => CreateAccountScreen()
         },
       ),
     );

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_pagination/firebase_pagination.dart';
 import 'package:flutter/material.dart';
 import 'package:muj_verse_beta/core/bottom_nav.dart';
 import 'package:muj_verse_beta/olx/category_widget.dart';
@@ -14,13 +16,13 @@ class OlxScreen extends StatelessWidget {
     final dataState = Provider.of<DataState>(context);
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 248, 248, 248),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 41, 51, 65),
         foregroundColor: Colors.white,
         centerTitle: true,
         title: const Text(
-          'muj olx',
+          'muj marketplace',
           style: TextStyle(
               color: Colors.white, fontSize: 25, fontWeight: FontWeight.w600),
         ),
@@ -84,7 +86,7 @@ class OlxScreen extends StatelessWidget {
                         ),
                         FittedBox(
                           child: Text(
-                            'Your One-Stop Shop\nfor Secondhand Steals',
+                            'Your One-Stop \nShop for Steals',
                             style: TextStyle(fontSize: 16),
                           ),
                         )
@@ -115,29 +117,29 @@ class OlxScreen extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-            FutureBuilder(
-              future: dataState.getOlxDetails(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return GridView.builder(
-                      padding: EdgeInsets.symmetric(horizontal: 18),
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: dataState.olxData.length,
-                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                          crossAxisSpacing: 13,
-                          mainAxisSpacing: 13,
-                          childAspectRatio: 6 / 8,
-                          maxCrossAxisExtent: 210),
-                      itemBuilder: (context, index) {
-                        return OlxItemWidget(
-                            dataState.olxData.elementAt(index));
-                      });
-                } else {
-                  return Center(child: CircularProgressIndicator());
-                }
+            FirestorePagination(
+              limit: 10,
+              viewType: ViewType.grid,
+              bottomLoader: Center(
+                child: CircularProgressIndicator(),
+              ),
+              query: FirebaseFirestore.instance.collection('olx'),
+              itemBuilder: (context, snapshot, index) {
+                return OlxItemWidget(snapshot.data() as Map);
               },
-            )
+              scrollDirection: Axis.vertical,
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  crossAxisSpacing: 13,
+                  mainAxisSpacing: 13,
+                  childAspectRatio: 6 / 8,
+                  maxCrossAxisExtent: 210),
+              padding: EdgeInsets.symmetric(horizontal: 18),
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+            ),
+            SizedBox(
+              height: 70,
+            ),
           ],
         ),
       ),

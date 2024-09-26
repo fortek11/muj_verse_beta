@@ -106,31 +106,33 @@ class MenuScreen extends StatelessWidget {
                           Container(
                             height: 25,
                             decoration: const BoxDecoration(
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Color.fromARGB(
+                                            255, 243, 245, 250))),
                                 borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(25),
                                     topRight: Radius.circular(25)),
-                                color: Color(0xFFEDEDEE)),
+                                color: Color.fromARGB(255, 243, 245, 250)),
                             child: const Center(),
                           )
                         ],
                       ),
                     ),
-                    Flexible(
-                      fit: FlexFit.loose,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(25),
-                        child: Container(
-                          child: ListView.builder(
-                              shrinkWrap: true,
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 5, horizontal: 12),
-                              itemCount: snapshot.data!.length,
-                              itemBuilder: ((context, index) {
-                                return RestaurantTile(
-                                    snapshot.data![index].toString());
-                              })),
-                        ),
-                      ),
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Color.fromARGB(255, 243, 245, 250)),
+                          borderRadius: BorderRadius.circular(25)),
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 5, horizontal: 12),
+                          itemCount: snapshot.data!.length,
+                          itemBuilder: ((context, index) {
+                            return RestaurantTile(
+                                snapshot.data![index].toString());
+                          })),
                     ),
                   ],
                 ),
